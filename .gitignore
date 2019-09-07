@@ -217,3 +217,7 @@ dmypy.json
 *.exe
 *.out
 *.app
+
+### vscode
+
+.vscode
