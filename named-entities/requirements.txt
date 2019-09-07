@@ -8,6 +8,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
 natasha==0.10.0
+numpy==1.17.2
 pymorphy2==0.8
 pymorphy2-dicts==2.4.393442.3710985
 Werkzeug==0.15.6
