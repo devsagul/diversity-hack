@@ -1,0 +1,11 @@
+#text{
+    padding-left: 10%;
+    width: 70vw;
+    outline: none;
+}
+#caretPos {
+    display: inline-block;
+    font-weight: bold;
+}
+#wrapper{
+}
