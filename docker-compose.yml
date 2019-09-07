@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+        natasha:
+                build: named-entities
+                volumes:
+                        - ./named-entities/app:/app
+                ports:
+                        - 5000:5000
+
