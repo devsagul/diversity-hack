@@ -1,21 +1,30 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
 body{
     background-color: indigo;
     height: 100vh;
 }
 #text{
-    font-family: customfont, sans-serif;
-    background-color: #cecece;
-    border: 2px solid #7b706f;
+    color: coral;
+    font-family: "Roboto Medium", monospace;
+    background-color: #000000;
+    border: 2px solid #2e3232;
     border-radius: 5px;
     width: 70vw;
     outline: none;
-    box-shadow: 0 4px 10px 4px #998b8a;
+    box-shadow: 0 4px 10px 4px #2e3232;
 }
 #caretPos {
     display: inline-block;
     font-weight: bold;
 }
 #wrapper{
+    padding-top: 3%;
     padding-left: 10%;
 
 }
@@ -24,27 +33,23 @@ body{
     border: 2px solid red;
     border-radius: 5px;
 }
-
 .adminP{
-    border: 2px solid red;
-    border-radius: 5px;
     background: aqua;
-    display: inline-table;
-    position: absolute;
-    right: 40px;
 }
 .user{
     background-color: brown;
     border: 2px solid red;
     border-radius: 5px;
 }
-.userP {
-    background-color: brown;
+.P{
     border: 2px solid red;
     border-radius: 5px;
     display: inline-table;
     position: absolute;
-    right: 40px
+    right: 80px
+}
+.userP {
+    background-color: brown;
 }
 
 .manager{
