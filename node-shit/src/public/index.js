@@ -21,7 +21,7 @@ let changes = () =>{
     const originContent= getContext(caretPos,text);
     const newContent= getContext(caretPos,elem("text").innerHTML);
     if (newContent !== originContent) {
-        elem("text").innerHTML = elem("text").innerHTML.replace(newContent, "<div class='admin' style='background: aqua'>" + originContent + "</div>" + "<div class='user' style='background: yellow'>" + newContent + "</div>")
+        elem("text").innerHTML = elem("text").innerHTML.replace(newContent, "<div class='admin'>" + originContent + "</div>" + "<div class='user'>" + newContent + "</div>")
         const adminPosts =elems("admin")
         adminPosts[adminPosts.length-1].innerHTML +=`
         <div class="adminP"> A </div>
