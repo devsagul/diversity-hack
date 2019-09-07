@@ -1,3 +1,4 @@
+
 const elem=(id)=> {
     return document.getElementById(id)
 }
@@ -23,23 +24,11 @@ let changes = () =>{
         elem("text").innerHTML = elem("text").innerHTML.replace(newContent, "<div class='admin' style='background: aqua'>" + originContent + "</div>" + "<div class='user' style='background: yellow'>" + newContent + "</div>")
         const adminPosts =elems("admin")
         adminPosts[adminPosts.length-1].innerHTML +=`
-        <div style="
-        padding-top: -40px!important;
-        background: aqua;
-        display: inline-table;
-        position: absolute;
-        right: 40px;
-        "> A </div>
+        <div class="adminP"> A </div>
         `;
         const userPosts =elems("user")
         userPosts[userPosts.length-1].innerHTML +=`
-        <div style="
-        display: inline-table;
-        padding-top: -20px; !important;
-        position: absolute;
-        right: 40px;
-         background: yellow;
-        "> U </div>
+        <div class="userP"> U </div>
         `
     }
 
@@ -119,10 +108,72 @@ function getCaretPosition() {
 }
 
 function showCaretPos() {
-    var el = elem("text");
-    var caretPosEl = elem("caretPos");
+    const el = elem("text");
+    const caretPosEl = elem("caretPos");
     caretPosEl.innerHTML = "Caret position: " + getCaretPosition(); //getCaretCharacterOffsetWithin(el);
 }
 
 document.body.onkeyup = showCaretPos;
 document.body.onmouseup = showCaretPos;
+
+$(document).ready(function() {
+    const handleDrag = function (e) {
+        //kill any default behavior
+        e.stopPropagation();
+        e.preventDefault();
+    };
+    const handleDrop = function (e) {
+        //kill any default behavior
+        e.stopPropagation();
+        e.preventDefault();
+        //console.log(e);
+        //get x and y coordinates of the dropped item
+        x = e.clientX;
+        y = e.clientY;
+        //drops are treated as multiple files. Only dealing with single files right now, so assume its the first object you're interested in
+        const file = e.dataTransfer.files[0];
+        //don't try to mess with non-image files
+        if (file.type.match('image.*')) {
+            //then we have an image,
+
+            //we have a file handle, need to read it with file reader!
+            const reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function (theFile) {
+                //get the data uri
+                const dataURI = theFile.target.result;
+                //make a new image element with the dataURI as the source
+                const img = document.createElement("img");
+                img.src = dataURI;
+
+                //Insert the image at the carat
+
+                // Try the standards-based way first. This works in FF
+                if (document.caretPositionFromPoint) {
+                    const pos = document.caretPositionFromPoint(x, y);
+                    range = document.createRange();
+                    range.setStart(pos.offsetNode, pos.offset);
+                    range.collapse();
+                    range.insertNode(img);
+                }
+                // Next, the WebKit way. This works in Chrome.
+                else if (document.caretRangeFromPoint) {
+                    range = document.caretRangeFromPoint(x, y);
+                    range.insertNode(img);
+                } else {
+                    //not supporting IE right now.
+                    console.log('could not find carat');
+                }
+
+
+            });
+            //this reads in the file, and the onload event triggers, which adds the image to the div at the carat
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const dropZone = elem('text');
+    dropZone.addEventListener('dragover', handleDrag, false);
+    dropZone.addEventListener('drop', handleDrop, false);
+});
