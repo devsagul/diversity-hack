@@ -1,11 +1,48 @@
+body{
+    background-color: indigo;
+    height: 100vh;
+}
 #text{
-    padding-left: 10%;
+    font-family: customfont, sans-serif;
+    background-color: #cecece;
+    border: 2px solid #7b706f;
+    border-radius: 5px;
     width: 70vw;
     outline: none;
+    box-shadow: 0 4px 10px 4px #998b8a;
 }
 #caretPos {
     display: inline-block;
     font-weight: bold;
 }
 #wrapper{
+    padding-left: 10%;
+
+}
+.admin{
+    border: 2px solid red;
+    border-radius: 5px;
+}
+.user{
+    border: 2px solid red;
+    border-radius: 5px;
+}
+.adminP{
+    border: 2px solid red;
+    border-radius: 5px;
+    padding-top: -40px!important;
+    background: aqua;
+    display: inline-table;
+    position: absolute;
+    right: 40px;
+}
+.userP{
+    border: 2px solid red;
+    border-radius: 5px;
+    display: inline-table;
+    padding-top: -20px; !important;
+    position: absolute;
+    right: 40px;
+    background: yellow;
+
 }
