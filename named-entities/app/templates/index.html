@@ -1,0 +1,12 @@
+<doctype html>
+<title>Natasha Demo</title>
+<h2>Natasha</h2>
+ 
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+    {{ form.csrf_token }}
+    <dl>
+        {{ render_field(form.text) }}
+    </dl>
+    <p><input type=submit value=Submit>
+</form>
