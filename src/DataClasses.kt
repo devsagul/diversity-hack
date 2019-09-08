@@ -11,6 +11,7 @@ data class Paragraph(var hash: Int, var text: String) {
     var nodiff = false
     var order = 0
     var goesAfter = 0
+    var data = ""
 
     fun getMapped(): Map<String,Any> { // inache etot pizdec norm v json ne prevratit'
         var diffType = ""
@@ -30,6 +31,8 @@ data class Paragraph(var hash: Int, var text: String) {
         mappedParagraph["author_id"] = authorId
         mappedParagraph["order"] = order
         mappedParagraph["changes"] = changes
+        mappedParagraph["date"] = data
+        mappedParagraph["text"] = text
         return mappedParagraph
     }
 }

@@ -11,7 +11,7 @@ class Differ {
 
 
         private fun isFamiliar(original: String, edited: String): Boolean {
-            return StringUtils.getLevenshteinDistance(original, edited)/original.length.toDouble() < 0.15
+            return StringUtils.getLevenshteinDistance(original, edited)/original.length.toDouble() < 0.45
         }
 
         private fun getParagraphs(text: String): List<Paragraph> {
@@ -57,6 +57,16 @@ class Differ {
         changesList.forEach {
             it.order = pOrderMap[it.p_id]!!
         }
+
+        //
+        val dates = mapOf(1 to "05.09.2019 17:03",
+            2 to "07.09.2019 11:04",
+            3 to "07.09.2019 19:45",
+            7 to "08.08.2019 09:21")
+        changesList.forEach {
+            it.data = dates[it.authorId]?: "07.09.2019 11:06"
+        }
+        //
         val preparedList = mutableListOf<Map<String,Any>>()
         changesList.forEach {
             preparedList += it.getMapped()
