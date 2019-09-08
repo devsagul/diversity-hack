@@ -7,4 +7,10 @@ services:
                         - ./named-entities/app:/app
                 ports:
                         - 5000:5000
-
+        
+        nodejs:
+                build: node-shit
+                volumes:
+                        - ./node-shit/src:/app
+                ports:
+                        - 3000:3000
