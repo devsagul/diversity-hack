@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from skimage.measure import structural_similarity as ssim
 from flask import Flask, request
 
 
@@ -16,6 +17,9 @@ def index():
             return im1
         elif resized_images(im1, im2):
             return ('resized', im1, im2)
+        elif ssim(im1, im2) >= 0.8:
+            pass
+        else return None
 
 def same_images(image1, image2):
     if image1.shape != image2.shape:
