@@ -9,6 +9,22 @@ body{
     background-color: #c2e4f7;
     height: 100vh;
 }
+#time{
+    display: inline-flex;
+    border: 1px red solid;
+    width: 27%;
+}
+#accept{
+    background-image: url("https://cdn1.vectorstock.com/i/1000x1000/52/30/check-mark-icon-in-flat-style-ok-accept-on-vector-22675230.jpg");
+    width: 10px;
+    height: 10px;
+
+}
+#target{
+    width: 70%;
+    display: inline-flex;
+    border: 1px solid red;
+}
 #text{
     color: #0c0c0c;
     padding: 1em;
@@ -38,7 +54,7 @@ body{
     background: aqua;
 }
 .user{
-    background-color: brown;
+    background-color: #d9d550;
     border: 2px solid red;
     border-radius: 5px;
 }
@@ -52,6 +68,9 @@ body{
     float: right;
     bottom: 40px;
     left: 80px;
+}
+.jopa{
+    border:1px solid red;
 }
 .userP {
     background-color: brown;
