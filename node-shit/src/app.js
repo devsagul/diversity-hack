@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require("path");
 const app = express();
-
+const cors = require('cors');
+app.use(cors());
 app.set("public", path.join(__dirname, "./public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('./public'));

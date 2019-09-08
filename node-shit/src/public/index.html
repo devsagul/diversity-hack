@@ -12,8 +12,21 @@
     <div id="wrapper">
         <button onclick="changes()">changes </button>
         <div id="caretPos">0</div>
-        <div id="text" contenteditable="true"></div>
+        <div id="text" contenteditable="true">
+
+        </div>
     </div>
+    <div>
+        <img id="del1" src="chasy.jfif" style="position:relative;top: -62px;left: 140px;border: 2px solid red;border-radius: 100%">
+        <img id="del2" src="patriarkh.jfif">
+        <img src="patriarkh.jfif" onclick="function deleteFakes() {
+            elem('del1').style.visibility='hidden'
+            elem('del2').style.visibility='hidden'
+            console.log(1)
+            }
+            deleteFakes()">
+    </div>
+
     <script src="index.js"> </script>
 </body>
 </html>
