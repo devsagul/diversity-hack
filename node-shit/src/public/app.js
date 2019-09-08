@@ -1,6 +1,6 @@
 let doc ;
 try {
-//    doc =fetching()
+    doc =fetching()
 }
 catch (e) {
     doc = {
